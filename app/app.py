@@ -3,7 +3,8 @@ import numpy as np
 import pickle
 
 # Load model
-model = pickle.load(open("../model/stock_model.pkl", "rb"))
+model = pickle.load(open("model/stock_model.pkl", "rb"))
+
 
 st.title("📈 Stock Market Price Prediction App")
 
