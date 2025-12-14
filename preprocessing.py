@@ -33,10 +33,10 @@ class StockDataPreprocessor:
         
         # Forward fill for time series data
         df = df.sort_values('Date')
-        df = df.fillna(method='ffill')
+        df = df.ffill()
         
         # Backward fill for any remaining
-        df = df.fillna(method='bfill')
+        df = df.bfill()
         
         missing_after = df.isnull().sum()
         
@@ -113,7 +113,7 @@ class StockDataPreprocessor:
         df['Volume_Lag1'] = df.groupby('Company')['Volume'].shift(1)
         
         # Fill NaN values from lag features
-        df = df.fillna(method='bfill')
+        df = df.bfill()
         
         return df
     
